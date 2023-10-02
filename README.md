@@ -4,9 +4,10 @@ This super simple Python script downloads game covers from [MobyGames](https://w
 
 ## How to use
 
-First, create a [MobyGames](https://www.mobygames.com/) account and go to your profile. Click on API as seen in the image below.
+First, create a [MobyGames](https://www.mobygames.com/) account and go to your profile. Click on API to sign up for an API key as seen in the image below. For the first reason type "DCBadges".
 
 ![Profile](https://media.discordapp.net/attachments/571743491709730826/1158548521952223363/Screenshot_2023-10-02_16-36-20.png)
+
 
 Copy the API key to your clipboard and make a new file named `.env` in the DCBadges directory. In that file put `API_KEY=` and then your API key.
 
