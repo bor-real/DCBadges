@@ -6,10 +6,10 @@ import requests
 from PIL import Image
 
 # Constants
-API_KEY = "moby_ZqThrYm5KKUAiO0UPpv2YCZmlex"
+API_KEY = "YOUR-API-KEY-HERE"
 BASE_URL = "https://api.mobygames.com/v1/"
 PLATFORM_ID = 8
-LIMIT = 82
+LIMIT = 40
 RESIZE_DIMENSIONS = (128, 128)
 FOLDER_NAME = "badges"
 
@@ -39,6 +39,7 @@ def download_covers():
             
             # Download and resize the cover image
             cover_image = Image.open(io.BytesIO(requests.get(cover_image_link).content))
+            print(f"Downloading cover for {game_id}.")
             cover_image.resize(RESIZE_DIMENSIONS).save(os.path.join(FOLDER_NAME, str(game_id) + ".png"))
 
         except IndexError:
