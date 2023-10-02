@@ -11,4 +11,4 @@ First, create a [MobyGames](https://www.mobygames.com/) account and go to your p
 
 Copy the API key to your clipboard and make a new file named `.env` in the DCBadges directory. In that file put `API_KEY=` and then your API key.
 
-Type `pip install -r requirements.txt` to install the required packages and then run `main.py` It should be noted that `platforms.json` is not used by the script. 
+Type `pip install -r requirements.txt` to install the required packages and then run `main.py`.
