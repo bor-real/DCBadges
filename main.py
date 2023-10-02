@@ -4,9 +4,12 @@ import time
 import json
 import requests
 from PIL import Image
+from dotenv import load_dotenv
+
+load_dotenv()
 
 # Constants
-API_KEY = "YOUR-API-KEY-HERE"
+API_KEY = os.getenv("API_KEY")
 BASE_URL = "https://api.mobygames.com/v1/"
 PLATFORM_ID = 8
 LIMIT = 40
@@ -35,7 +38,9 @@ def download_covers():
 
         try:
             # Get the URL of the cover image
-            cover_image_link = covers_data['cover_groups'][0]['covers'][0]['image']
+            # This just uses the first image it can. I don't care that it mixes and matches regions. 
+
+            cover_image_link = covers_data['cover_groups'][0]['covers'][0]['image'] 
             
             # Download and resize the cover image
             cover_image = Image.open(io.BytesIO(requests.get(cover_image_link).content))
@@ -44,6 +49,8 @@ def download_covers():
 
         except IndexError:
             print(f"{game_id} doesn't have any covers.")
+
+    print("Downloading complete.")
 
 # Main function
 if __name__ == "__main__":
