@@ -6,10 +6,10 @@ import requests
 from PIL import Image
 
 # Constants
-API_KEY = "YOUR-API-KEY-HERE"
+API_KEY = "moby_ZqThrYm5KKUAiO0UPpv2YCZmlex"
 BASE_URL = "https://api.mobygames.com/v1/"
 PLATFORM_ID = 8
-LIMIT = 30
+LIMIT = 82
 RESIZE_DIMENSIONS = (128, 128)
 FOLDER_NAME = "badges"
 
