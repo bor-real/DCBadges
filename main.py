@@ -13,6 +13,7 @@ API_KEY = os.getenv("API_KEY")
 BASE_URL = "https://api.mobygames.com/v1/"
 LIMIT = 40
 RESIZE_DIMENSIONS = (128, 128)
+PLATFORM_ID = None
 FOLDER_NAME = "badges"
 RATE_LIMIT_DELAY = 1
 
