@@ -14,6 +14,7 @@ BASE_URL = "https://api.mobygames.com/v1/"
 LIMIT = 40
 RESIZE_DIMENSIONS = (128, 128)
 FOLDER_NAME = "badges"
+RATE_LIMIT_DELAY = 1
 
 def getPlatformID(target_platform_name):
     platforms_url = f"{BASE_URL}platforms?api_key={API_KEY}"
@@ -22,6 +23,8 @@ def getPlatformID(target_platform_name):
 
     # Theres a better way to get it than to loop through them but im just doing this rn
     # because I don't really care and it only runs once
+
+    time.sleep(RATE_LIMIT_DELAY)
 
     for item in platforms_list_data.get("platforms", []):
         if item.get("platform_name") == target_platform_name:
@@ -43,7 +46,7 @@ def download_covers():
     
     # Iterate through the games and download their covers
     for game_id in game_list_data["games"]:
-        time.sleep(1)  # For rate limiting reasons
+        time.sleep(RATE_LIMIT_DELAY)
 
         # Fetch cover information for the game
         covers_url = f"{BASE_URL}games/{game_id}/platforms/{PLATFORM_ID}/covers?api_key={API_KEY}"
