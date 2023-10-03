@@ -11,12 +11,25 @@ load_dotenv()
 # Constants
 API_KEY = os.getenv("API_KEY")
 BASE_URL = "https://api.mobygames.com/v1/"
-PLATFORM_ID = 8
+PLATFORM_ID = getPlatformID("Dreamcast")
 LIMIT = 40
 RESIZE_DIMENSIONS = (128, 128)
 FOLDER_NAME = "badges"
 
-# Function to download covers
+def getPlatformID():
+    platforms_url = f"{BASE_URL}platforms?api_key={API_KEY}"
+    platforms_list_response = requests.get(platforms_url)
+    platforms_list_data = json.loads(platforms_list_response.text)
+
+    # Theres a better way to get it than to loop through them but im just doing this rn
+    # because I don't really care and it only runs once
+
+    for item in platforms_list_data.get("platforms", []):
+        if item.get("platform_name") == target_platform_name:
+            platform_id = item.get("platform_id")
+            
+            return(platform_id)
+
 def download_covers():
     # Create folder if it doesn't exist
     if not os.path.exists(FOLDER_NAME):
