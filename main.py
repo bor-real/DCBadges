@@ -28,7 +28,7 @@ def getPlatformID():
         if item.get("platform_name") == target_platform_name:
             platform_id = item.get("platform_id")
             
-            return(platform_id)
+            return platform_id
 
 def download_covers():
     # Create folder if it doesn't exist
