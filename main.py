@@ -11,7 +11,6 @@ load_dotenv()
 # Constants
 API_KEY = os.getenv("API_KEY")
 BASE_URL = "https://api.mobygames.com/v1/"
-PLATFORM_ID = getPlatformID("Dreamcast")
 LIMIT = 40
 RESIZE_DIMENSIONS = (128, 128)
 FOLDER_NAME = "badges"
@@ -29,6 +28,8 @@ def getPlatformID():
             platform_id = item.get("platform_id")
             
             return platform_id
+
+PLATFORM_ID = getPlatformID("Dreamcast")
 
 def download_covers():
     # Create folder if it doesn't exist
